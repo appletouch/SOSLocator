@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Locator.xcodeproj">
+      location = "self:/Users/Pkoolwijk/Developer/swift3/SOSLocator/SOSLocator.xcodeproj">
    </FileRef>
 </Workspace>

@@ -12,16 +12,21 @@
 		ADF472141FF3FB8900B5AB98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADF472121FF3FB8900B5AB98 /* Main.storyboard */; };
 		ADF472161FF3FB8900B5AB98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADF472151FF3FB8900B5AB98 /* Assets.xcassets */; };
 		ADF472191FF3FB8900B5AB98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADF472171FF3FB8900B5AB98 /* LaunchScreen.storyboard */; };
+		ADF472221FF4012400B5AB98 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF472211FF4012400B5AB98 /* MapKit.framework */; };
+		ADF472241FF564C600B5AB98 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF472231FF564C600B5AB98 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ADF4720B1FF3FB8900B5AB98 /* Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADF4720B1FF3FB8900B5AB98 /* SOSLocator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOSLocator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF4720E1FF3FB8900B5AB98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF472101FF3FB8900B5AB98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ADF472131FF3FB8900B5AB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADF472151FF3FB8900B5AB98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADF472181FF3FB8900B5AB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADF4721A1FF3FB8900B5AB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADF472211FF4012400B5AB98 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		ADF472231FF564C600B5AB98 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		ADF472261FF6559F00B5AB98 /* SOSLocator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SOSLocator.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF472241FF564C600B5AB98 /* MessageUI.framework in Frameworks */,
+				ADF472221FF4012400B5AB98 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,22 +45,24 @@
 		ADF472021FF3FB8900B5AB98 = {
 			isa = PBXGroup;
 			children = (
-				ADF4720D1FF3FB8900B5AB98 /* Locator */,
+				ADF4720D1FF3FB8900B5AB98 /* SOSLocator */,
 				ADF4720C1FF3FB8900B5AB98 /* Products */,
+				ADF472201FF4012300B5AB98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		ADF4720C1FF3FB8900B5AB98 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ADF4720B1FF3FB8900B5AB98 /* Locator.app */,
+				ADF4720B1FF3FB8900B5AB98 /* SOSLocator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ADF4720D1FF3FB8900B5AB98 /* Locator */ = {
+		ADF4720D1FF3FB8900B5AB98 /* SOSLocator */ = {
 			isa = PBXGroup;
 			children = (
+				ADF472261FF6559F00B5AB98 /* SOSLocator.entitlements */,
 				ADF4720E1FF3FB8900B5AB98 /* AppDelegate.swift */,
 				ADF472101FF3FB8900B5AB98 /* ViewController.swift */,
 				ADF472121FF3FB8900B5AB98 /* Main.storyboard */,
@@ -61,15 +70,24 @@
 				ADF472171FF3FB8900B5AB98 /* LaunchScreen.storyboard */,
 				ADF4721A1FF3FB8900B5AB98 /* Info.plist */,
 			);
-			path = Locator;
+			path = SOSLocator;
+			sourceTree = "<group>";
+		};
+		ADF472201FF4012300B5AB98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADF472231FF564C600B5AB98 /* MessageUI.framework */,
+				ADF472211FF4012400B5AB98 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ADF4720A1FF3FB8900B5AB98 /* Locator */ = {
+		ADF4720A1FF3FB8900B5AB98 /* SOSLocator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ADF4721D1FF3FB8900B5AB98 /* Build configuration list for PBXNativeTarget "Locator" */;
+			buildConfigurationList = ADF4721D1FF3FB8900B5AB98 /* Build configuration list for PBXNativeTarget "SOSLocator" */;
 			buildPhases = (
 				ADF472071FF3FB8900B5AB98 /* Sources */,
 				ADF472081FF3FB8900B5AB98 /* Frameworks */,
@@ -79,9 +97,9 @@
 			);
 			dependencies = (
 			);
-			name = Locator;
+			name = SOSLocator;
 			productName = Locator;
-			productReference = ADF4720B1FF3FB8900B5AB98 /* Locator.app */;
+			productReference = ADF4720B1FF3FB8900B5AB98 /* SOSLocator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -97,10 +115,54 @@
 					ADF4720A1FF3FB8900B5AB98 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+							com.apple.HomeKit = {
+								enabled = 0;
+							};
+							com.apple.HotspotConfiguration = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Multipath = {
+								enabled = 0;
+							};
+							com.apple.NearFieldCommunicationTagReading = {
+								enabled = 0;
+							};
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+							com.apple.VPNLite = {
+								enabled = 0;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+							com.apple.Wallet = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
-			buildConfigurationList = ADF472061FF3FB8900B5AB98 /* Build configuration list for PBXProject "Locator" */;
+			buildConfigurationList = ADF472061FF3FB8900B5AB98 /* Build configuration list for PBXProject "SOSLocator" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,7 +175,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ADF4720A1FF3FB8900B5AB98 /* Locator */,
+				ADF4720A1FF3FB8900B5AB98 /* SOSLocator */,
 			);
 		};
 /* End PBXProject section */
@@ -211,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -262,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -276,12 +338,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26HMBLYBM4;
-				INFOPLIST_FILE = Locator/Info.plist;
+				INFOPLIST_FILE = SOSLocator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.bluedolfin.Locator;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.bluedolfin.SOSLocator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -291,19 +354,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26HMBLYBM4;
-				INFOPLIST_FILE = Locator/Info.plist;
+				INFOPLIST_FILE = SOSLocator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.bluedolfin.Locator;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.bluedolfin.SOSLocator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ADF472061FF3FB8900B5AB98 /* Build configuration list for PBXProject "Locator" */ = {
+		ADF472061FF3FB8900B5AB98 /* Build configuration list for PBXProject "SOSLocator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ADF4721B1FF3FB8900B5AB98 /* Debug */,
@@ -312,7 +376,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ADF4721D1FF3FB8900B5AB98 /* Build configuration list for PBXNativeTarget "Locator" */ = {
+		ADF4721D1FF3FB8900B5AB98 /* Build configuration list for PBXNativeTarget "SOSLocator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ADF4721E1FF3FB8900B5AB98 /* Debug */,
