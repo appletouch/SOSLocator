@@ -7,16 +7,17 @@
 //
 
 import UIKit
-import MapKit
-import MessageUI
+import MapKit    // neede to use the locationmanager
+import MessageUI // needed to send sms messages
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MFMessageComposeViewControllerDelegate {
     
-    
+    // global variables to hold position
     var myLatitude: Double?
     var myLongtitude: Double?
     var myAltitude: Double?
     
+    // takes care of updating location
     let locationManager =  CLLocationManager()
     
     
@@ -37,15 +38,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MFMessageComp
         // Dispose of any resources that can be recreated.
     }
     
-    //textfield for location
+    
+    //**************** OUTLETS ****************
+    
+    //textfield for showing location
     @IBOutlet weak var latitude: UITextField!
     @IBOutlet weak var longtitude: UITextField!
     @IBOutlet weak var altitude: UITextField!
     
-    //map on screen
+    //Central map on screen
     @IBOutlet weak var map: MKMapView!
     
     
+    // function on location manager to check if device is authorized to use GPS
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus){
         
         if status == .authorizedWhenInUse{
@@ -55,7 +60,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MFMessageComp
         else{
             print("GPS not allowed")
             // create the alert
-            let alert = UIAlertController(title: "No network available.", message: "Please find a better location and try again!", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "No GPS", message: "Please allow location services and try again!", preferredStyle: UIAlertControllerStyle.alert)
             
             // add an action (button)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -66,8 +71,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MFMessageComp
         }
     }
     
+    // function on location manager to update location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        //get coordinates from location manager and update testfields
         let myCoordinates = locationManager.location?.coordinate
         myAltitude = locationManager.location?.altitude
         myLatitude = myCoordinates?.latitude
@@ -76,7 +83,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MFMessageComp
         longtitude.text = String(myLongtitude!)
         altitude.text = String(describing: Measurement(value: myAltitude!, unit: UnitLength.meters))
         
-        
+        // update map with zoomed in area from 10KM x 10KM
         let viewRegion = MKCoordinateRegionMakeWithDistance(myCoordinates!, 10000, 10000)
         self.map.setRegion(viewRegion, animated: false)
         
@@ -85,7 +92,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MFMessageComp
     
     
     
-    // CODE FOR SOS BUTTON
+    // **************** CODE FOR SOS BUTTON  ****************
     
     let messsageCompose = MFMessageComposeViewController()
     
@@ -94,25 +101,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MFMessageComp
         return MFMessageComposeViewController.canSendText()
     }
     
-    
+    //function to dimiss sms screen when sms is send
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: nil)
     }
     
-    //https://www.google.com/maps/place/52.1604244096155N+5.29765459213514E/
+    
+    //function when SOS button is clicked
     @IBAction func sendSOS(_ sender: UIButton) {
         
         if canSendText() {
-        
-        print("sending SOS")
-        
-        let googleLink = "https://www.google.com/maps/place/" + String(myLatitude!) + "+" + String(myLongtitude!)
-        let SMStext = "EMERGENCY!!, Please rescue me from this location Latitude: " + String(myLatitude!) + " Longtitude: " + String(myLongtitude!) + "  " + googleLink
-        let messsageCompose = MFMessageComposeViewController()
-        messsageCompose.messageComposeDelegate = self
-        messsageCompose.recipients = []
-        messsageCompose.body = SMStext
-        present(messsageCompose, animated: true, completion: nil)
+            
+            print("sending SOS")
+            
+            //compese message with google link
+            let googleLink = "https://www.google.com/maps/place/" + String(myLatitude!) + "+" + String(myLongtitude!)
+            let SMStext = "EMERGENCY!!, Please rescue me from this location Latitude: " + String(myLatitude!) + " Longtitude: " + String(myLongtitude!) + "  " + googleLink
+            let messsageCompose = MFMessageComposeViewController()
+            messsageCompose.messageComposeDelegate = self
+            messsageCompose.recipients = []
+            messsageCompose.body = SMStext
+            present(messsageCompose, animated: true, completion: nil)
             
         }else{
             // create the alert
